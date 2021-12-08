@@ -1,6 +1,6 @@
 function Header() {
     return (
-        <div className="flex items-center justify-between max-w-4xl my-8 mx-auto px-16 py-4 bg-green-50 rounded-full shadow-lg">
+        <div className="flex items-center justify-between max-w-4xl my-8 mx-auto px-16 py-4 bg-gray-50 rounded-full shadow-lg">
                 <a href="/" className="flex hover:scale-125 transition duration-100 space-x-3 text-xl font-semibold">
                 <img src="/logo.svg"></img>
                 <span>MEK</span>
