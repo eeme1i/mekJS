@@ -6,9 +6,6 @@ function Header() {
                 <span>MEK</span>
                 </a>
             <div className="text-xl font-semibold tracking-tight text-gray-500">
-                <a target="_blank" href="/" className=" hover:text-gray-800 transition duration-200 mr-10">
-                App
-                </a>
                 <a target="_blank" href="https://github.com/matikkaeditorinkaantaja/Matikkaeditorinkaantaja" className="mr-10 hover:text-gray-800 transition duration-100">
                 Github
                 </a>
