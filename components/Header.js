@@ -5,6 +5,9 @@ function Header() {
                 <img src="/logo.svg"></img>
                 </a>
             <div className="text-xl font-semibold tracking-tight text-gray-400 hidden mobile:block">
+            <a target="_blank" href="/" className="mr-10 hover:text-gray-800 transition duration-200">
+                App
+                </a>
                 <a target="_blank" href="https://math.eem.works" className="mr-10 hover:text-gray-800 transition duration-200">
                 Download
                 </a>

@@ -5,7 +5,10 @@ function Footer() {
                 <img src="/logo.svg"></img>
             </a>
             <div className="text-xl text-right flex flex-col justify-items-end font-semibold tracking-tight text-gray-400">
-            <a target="_blank" href="https://math.eem.works" className="hover:text-gray-800 transition duration-200">
+            <a target="_blank" href="/" className="hover:text-gray-800 transition duration-200">
+                App
+                </a>
+                <a target="_blank" href="https://math.eem.works" className="hover:text-gray-800 transition duration-200">
                 Download
                 </a>
                 <a target="_blank" href="https://github.com/matikkaeditorinkaantaja/Matikkaeditorinkaantaja" className="transition duration-200 hover:text-gray-800">
