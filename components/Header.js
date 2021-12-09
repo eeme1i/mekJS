@@ -4,7 +4,7 @@ function Header() {
                 <a href="/" className="flex hover:scale-125 transition duration-200 space-x-3 text-xl font-semibold">
                 <img src="/logo.svg"></img>
                 </a>
-            <div className="text-xl font-semibold tracking-tight text-gray-400">
+            <div className="text-xl font-semibold tracking-tight text-gray-400 hidden mobile:block">
                 <a target="_blank" href="https://math.eem.works" className="mr-10 hover:text-gray-800 transition duration-200">
                 Download
                 </a>
