@@ -19,8 +19,7 @@ function Translation() {
             </button>
           </form>
           <form>
-            <textarea        
-            value="asdasdasd"
+            <textarea
             spellcheck="false" 
             readonly="readonly" 
             id="output" 

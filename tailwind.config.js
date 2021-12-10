@@ -10,6 +10,9 @@ module.exports = {
       '2xl': '0 0px 50px 0px rgba(0, 0, 0, 0.10)',
     },
     extend: {
+      width: {
+        '128': '32rem',
+      },
       backgroundImage: {
         'hero-pattern': "url('/bg.png')",
       },

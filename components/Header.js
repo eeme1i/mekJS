@@ -1,3 +1,5 @@
+import Link from 'next/Link';
+
 function Header() {
     return (
         <div className="z-2 relative flex items-center justify-between w-3/4 max-w-4xl my-8 mx-auto px-8 py-6 bg-white bg-opacity-75 rounded-full">
@@ -5,17 +7,18 @@ function Header() {
                 <img src="/logo.svg"></img>
                 </a>
             <div className="text-xl font-semibold tracking-tight text-gray-400 hidden mobile:block">
-            <a target="_blank"
-            href="/"
-            className="mr-10 hover:text-gray-800 transition duration-200">
+                <Link href="/">
+                <a
+                className="mr-10 hover:text-gray-800 transition duration-200">
                 App
                 </a>
-                <a
-                target="_blank" 
-                href="https://math.eem.works" 
+                </Link>
+                <Link href="/download">
+                <a 
                 className="mr-10 hover:text-gray-800 transition duration-200">
                 Download
                 </a>
+                </Link>
                 <a 
                 target="_blank" 
                 href="https://github.com/matikkaeditorinkaantaja/Matikkaeditorinkaantaja" 
