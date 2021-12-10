@@ -4,6 +4,7 @@ import Background from "../components/Background";
 import Translation from '../components/Translation';
 import Footer from '../components/Footer';
 import Block from '../components/Block';
+import Link from 'next/link'
 
 export default function Home() {
   return (
