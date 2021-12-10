@@ -10,16 +10,16 @@ function download() {
         <Header />
             <div className="z-2 relative mx-auto w-3/4 max-w-4xl">
                 <div className="px-8">
-                <p className=" text-6xl tracking-tighter font-medium text-gray-700 pb-16">
+                <p className="text-center text-7xl tracking-tighter font-medium text-gray-700 pt-8 pb-16">
                 LaTeX to Nspire<br/>Translator
                 </p>
                 </div>
                 <div className="invisible mobile:visible pb-16">
                     <Image src="/translation2.png" height={514} width={1632}/>
                 </div>
-                <div className="text-2xl font-medium tracking-tighter mx-auto w-100 bg-white p-8 mobile:w-3/4 rounded-2xl mb-16">
+                <div className="text-2xl font-medium tracking-tighter mx-auto w-100 bg-white opacity-75 p-8 mobile:w-3/4 rounded-2xl mb-16">
                     <p className="leading-6 pb-4">Download MEK to<br/>your computer</p>
-                    <div className="text-xl flex justify-between text-white bg-black py-4 px-8 rounded-2xl">
+                    <div className="text-xl flex justify-between text-white bg-black opacity-100 py-4 px-8 rounded-2xl">
                         <p>MEK 3.0</p>
                         <a className="hover:scale-125 transition duration-200" href="https://github.com/matikkaeditorinkaantaja/Matikkaeditorinkaantaja/archive/refs/tags/v3.0.zip" class="dl">
                             <svg className="stroke-green-400" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
