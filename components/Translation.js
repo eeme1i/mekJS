@@ -2,7 +2,7 @@
 function Translation() {
     return (
         <div>
-        <div className="z-20 relative py-8">
+        <div className="z-20 relative pt-8">
           <form>
             <textarea 
             spellcheck="false" 
