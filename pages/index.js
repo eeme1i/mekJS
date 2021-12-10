@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
 
       {/*hides everything when screen width <540px NO LONGER NEEDED*/}
-      <Block />
+      {/* <Block /> */}
       {/*background gradient*/}
       <Background />
       <Header />
