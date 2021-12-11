@@ -1,4 +1,4 @@
-
+import CallTranslation from "./CallTranslation"
 function Translation() {
     return (
         <div>
@@ -13,7 +13,7 @@ function Translation() {
             className="shadow-2xl font-mono outline-none border-0 ring-0 shadow-none text-xl flex mx-auto w-3/4 max-w-4xl bg-white bg-opacity-75 p-8 rounded-3xl"/>
             <button
             type="button"
-            onClick={() => {console.log("translate")}}
+            onClick={CallTranslation}
             className="flex hover:scale-110 transition duration-150 mx-auto my-8 py-4 px-8 text-2xl text-white bg-blue-400 hover:bg-indigo-400 rounded-full shadow-lg">
             Translate
             </button>
