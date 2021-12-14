@@ -1,46 +1,71 @@
-import { data } from "autoprefixer";
-const IsDevelopment = true;
+const IsDevelopment = false;
 async function CallTranslation(){
-    /*
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            alert(xmlHttp.responseText);
-            //inset text to textarea
-            document.getElementById("output").value = xmlHttp.responseText;
-        }
-    xmlHttp.open("POST", "https://jsonplaceholder.typicode.com/posts", true); // true for asynchronous 
-    xmlHttp.send(null);
-    */
-    
-    
-    // when api server is running change this to url 
-    // chance also body elements to fit api
-    await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-          title: 'foo',
-          body: 'bar',
-          userId: 1,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => ParseJSON(json));
+  
+  // configure text to suitable for json
+  var latexText = document.getElementById("input").value;
+  latexText = "" ? " " : latexText;
+  latexText = latexText.replace("-back-", "-#back#-");
+  latexText = latexText.replace("\\", "-back-");
+  latexText = latexText.replace("-down-", "-#down#-");
+  latexText = latexText.replace("_", "-down-");
 
+  // call api 
+  try{
+    // when api server is running change this to real url 
+    await fetch('https://localhost:7011/api/translateLaTeX', {  
+      method: 'POST',
+      body: JSON.stringify({     
+        Latex: latexText        // <= chance also body elements to fit api  (Latex, Arguments)
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => ParseJSON(json));
+  }
+  catch(e){
+    console.error(e);
+  }
 }
-
 export default CallTranslation
 
+
+// to-do list:
+//      put json character changes to their own function
+//      arguments don't work right in api side
+//      settings menu in UI 
+
+
+// this function returns values to specific text boxes and logs errors
 function ParseJSON(json){
+  try{
     if (IsDevelopment){
-        console.log("here is some data from database:");
-        console.log(json);
-    }
-    document.getElementById("output").value = "request info\n"
-        + "-----------------" 
-        + "\ntitle: " + json.title + "\nbody: " + json.body 
-        + "\nuser id: " + json.userId;
+      console.log("data from translation api: ");
+      console.log(json);
+  }
+  // return value from translation
+  if (json.translation != undefined){
+    var translation = json.translation;
+    translation = translation.replace("-back-", "\\");
+    translation = translation.replace("-#back#-", "-back-");
+    translation = translation.replace("-down-", "_");
+    translation = translation.replace("-#down#-", "-down-");
+    document.getElementById("output").value = json.successfull ? translation : "No latex was given";
+  }
+  // log possible error codes
+  if (json.fails != "none"){
+    var fails = json.fails;
+    fails = fails.replace("-back-", "\\");
+    fails = fails.replace("-#back#-", "-back-");
+    fails = fails.replace("-down-", "_");
+    fails = fails.replace("-#down#-", "-down-");
+    console.log(fails);
+  }
+}
+  // if errors with handling with files (shouldn't ever happen)
+  catch(e){
+    console.log("error in dealing with api return values \nServer might be offline :(\n"
+                + "error is: " + e);
+  }
 }
