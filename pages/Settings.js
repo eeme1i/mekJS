@@ -43,12 +43,12 @@ function Settings() {
             <div className="my-8">
                 <p className="text-3xl pb-4">Muu</p>
                 <div className="text-2xl">
-                    <div className="flex">
-                        <p className=" bg-white p-4">Geometriatila</p>
-                    </div>
-                    <div className="">
+                    <button type="button" className="flex text-2xl tracking-tighter font-medium p-4 hover:bg-green-400 bg-white rounded-2xl transition duration-200">
+                        <p className="">Geometriatila</p>
+                    </button>
+                    <button type="button" className="flex text-2xl tracking-tighter font-medium p-4 hover:bg-green-400 bg-white rounded-2xl transition duration-200">
                         <p>Geometriatila</p>
-                    </div> 
+                    </button>
                 </div>
             </div>
         </div>
@@ -56,3 +56,4 @@ function Settings() {
 }
 
 export default Settings
+ 
