@@ -24,3 +24,4 @@ export default function Home() {
     </div>
   )
 }
+      {/*hides everything when screen width <540px NO LONGER NEEDED*/}
