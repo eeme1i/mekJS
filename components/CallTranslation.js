@@ -1,8 +1,13 @@
+import { normalizeConfig } from "next/dist/server/config-shared";
+
 const IsDevelopment = false;
 async function CallTranslation(){
   
   // configure text to suitable for json
-  var latexText = document.getElementById("input").value;
+  var args = "none";    // <= needs real input 
+
+
+  var latexText = document.getElementById("inputBox").value;
   latexText = "" ? " " : latexText;
   latexText = latexText.replace("-back-", "-#back#-");
   latexText = latexText.replace("\\", "-back-");
@@ -11,11 +16,11 @@ async function CallTranslation(){
 
   // call api 
   try{
-    // when api server is running change this to real url 
-    await fetch('https://localhost:7011/api/translateLaTeX', {  
+    await fetch('https://mek-web-api.azurewebsites.net/api/translateLaTeX', {  
       method: 'POST',
       body: JSON.stringify({     
-        Latex: latexText        // <= chance also body elements to fit api  (Latex, Arguments)
+        Latex: latexText,
+        Arguments: args
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -51,7 +56,7 @@ function ParseJSON(json){
     translation = translation.replace("-#back#-", "-back-");
     translation = translation.replace("-down-", "_");
     translation = translation.replace("-#down#-", "-down-");
-    document.getElementById("output").value = json.successfull ? translation : "No latex was given";
+    document.getElementById("outputBox").value = json.successfull ? translation : "No latex was given";
   }
   // log possible error codes
   if (json.fails != "none"){
@@ -66,6 +71,10 @@ function ParseJSON(json){
   // if errors with handling with files (shouldn't ever happen)
   catch(e){
     console.log("error in dealing with api return values \nServer might be offline :(\n"
-                + "error is: " + e);
+                + "error path is: " + e);
   }
 }
+
+
+
+
