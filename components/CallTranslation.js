@@ -13,26 +13,36 @@ async function CallTranslation(){
   latexText = latexText.replace("\\", "-back-");
   latexText = latexText.replace("-down-", "-#down#-");
   latexText = latexText.replace("_", "-down-");
-
   // call api 
-  try{
-    await fetch('https://mek-web-api.azurewebsites.net/api/translateLaTeX', {  
+
+
+
+  console.log("send new request")
+  //try{
+    // https://mekwebfunction.azurewebsites.net/api/TranslateLatex
+    await fetch('https://mekwebfunction.azurewebsites.net/api/TranslateLatex', {  
       method: 'POST',
-      body: JSON.stringify({     
-        Latex: latexText,
-        Arguments: args
+      body: JSON.stringify({
+        Latex : "\\frac{34}{3ss4}mmnn",
+        Args : {
+          MathMode : false,
+          PhysicsMode1 : true
+        }
       }),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'x-functions-key': process.env.NEXT_PUBLIC_API_KEY    // <= this needs to be hidden
       },
-    })
-      .then((response) => response.json())
-      .then((json) => ParseJSON(json));
+    })      
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+    //ParseJSON(json));
+    
   }
-  catch(e){
+  /*catch(e){
     console.error(e);
   }
-}
+}*/
 export default CallTranslation
 
 
